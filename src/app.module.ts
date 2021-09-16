@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TransactionsModule } from './transactions/transactions.module';
 import { Transaction } from './transactions/entities/transaction.entity';
+import { AccountsModule } from './accounts/accounts.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { Transaction } from './transactions/entities/transaction.entity';
       },
     }),
     TransactionsModule,
+    AccountsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
