@@ -1,0 +1,17 @@
+POST http://localhost:3333/transactions
+Content-Type: application/json
+
+{
+  "payment_date": "2021-01-01",
+  "name": "New ticket",
+  "description": "Description",
+  "category": "category1",
+  "amount": 30,
+  "type": "debit"
+}
+
+###
+GET http://localhost:3333/transactions
+Accept: application/json
+
+###
