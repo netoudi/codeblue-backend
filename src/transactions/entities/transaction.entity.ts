@@ -8,6 +8,7 @@ import {
   Table,
 } from 'sequelize-typescript';
 import { Account } from '../../accounts/entities/account.entity';
+import { ToNumber } from '../../common/db/to-number.decorator';
 
 export enum TransactionCategory {
   CATEGORY1 = 'category1',
@@ -45,6 +46,7 @@ export class Transaction extends Model {
   @Column({ allowNull: false })
   category: TransactionCategory;
 
+  @ToNumber
   @Column({ allowNull: false, type: DataType.DECIMAL(10, 2) })
   amount: number;
 
