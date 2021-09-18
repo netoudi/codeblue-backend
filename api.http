@@ -68,3 +68,8 @@ Authorization: Bearer {{access_token}}
 Accept: application/json
 
 ###
+GET http://localhost:3333/my-account
+Authorization: Bearer {{access_token}}
+Accept: application/json
+
+###
