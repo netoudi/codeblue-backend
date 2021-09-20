@@ -8,6 +8,8 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
+import { MessagePattern, Payload } from '@nestjs/microservices';
+import { KafkaMessage } from '@nestjs/microservices/external/kafka.interface';
 import { ReportsService } from './reports.service';
 import { CreateReportDto } from './dto/create-report.dto';
 import { UpdateReportDto } from './dto/update-report.dto';
@@ -43,5 +45,11 @@ export class ReportsController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.reportsService.remove(+id);
+  }
+
+  @MessagePattern('reports-generated')
+  async reportGenerated(@Payload() message: KafkaMessage) {
+    const { id, ...other } = message.value as any;
+    await this.reportsService.update(id, other);
   }
 }

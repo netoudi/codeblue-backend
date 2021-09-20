@@ -9,5 +9,5 @@ export class UpdateReportDto {
 
   @IsIn(ReportStatusList)
   @IsNotEmpty()
-  end_date: ReportStatus;
+  status: ReportStatus;
 }
